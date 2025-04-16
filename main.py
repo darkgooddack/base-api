@@ -39,9 +39,7 @@ async def validation_exception_handler(request: Request, exc: ValidationError):
 async def pong():
     return {"ping": "pong!"}
 
-@app.get("/test")
-async def test():
-    return {"hello": "world!"}
+
 
 
 app.include_router(router_goods)
