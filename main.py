@@ -17,7 +17,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    swagger_ui_parameters={"syntaxHighlight": {"theme": "github"}},
+    swagger_ui_parameters={"syntaxHighlight": {"theme": ".github"}},
     title="Goods API",
     lifespan=lifespan,
     description="Goods tool backend API.",
@@ -39,7 +39,9 @@ async def validation_exception_handler(request: Request, exc: ValidationError):
 async def pong():
     return {"ping": "pong!"}
 
-
+@app.get("/test")
+async def test():
+    return {"hello": "world!"}
 
 
 app.include_router(router_goods)
