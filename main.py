@@ -4,6 +4,7 @@ from pydantic import ValidationError
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 import uvicorn
+from fastapi.responses import RedirectResponse
 
 from app.database.db import init_db
 from app.goods.routers.goods import router as router_goods
@@ -22,6 +23,9 @@ app = FastAPI(
     description="Goods tool backend API.",
 )
 
+@app.get("/")
+def redirect_to_docs():
+    return RedirectResponse(url="/docs")
 
 @app.exception_handler(ValidationError)
 async def validation_exception_handler(request: Request, exc: ValidationError):
