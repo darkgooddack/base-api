@@ -16,9 +16,9 @@ jobs:
       db:
         image: postgres:15
         ports:
-          - 5433:5432  # Используем порт 5433 для внешнего подключения
+          - 5433:5432  # Порт, на котором база данных будет доступна
         env:
-          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_USER: ${{ secrets.DB_USER }}  # Передаем секреты в окружение
           POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
           POSTGRES_DB: ${{ secrets.DB_NAME }}
         options: >-
@@ -53,9 +53,9 @@ jobs:
       db:
         image: postgres:15
         ports:
-          - 5433:5432  # Используем порт 5433 для внешнего подключения
+          - 5433:5432  # Порт, на котором база данных будет доступна
         env:
-          POSTGRES_USER: ${{ secrets.DB_USER }}
+          POSTGRES_USER: ${{ secrets.DB_USER }}  # Передаем секреты в окружение
           POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
           POSTGRES_DB: ${{ secrets.DB_NAME }}
         options: >-
