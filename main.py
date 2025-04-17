@@ -9,6 +9,14 @@ from fastapi.responses import RedirectResponse
 from app.database.db import init_db
 from app.goods.routers.goods import router as router_goods
 
+import logging
+from rich.logging import RichHandler
+
+
+logger = logging.getLogger("uvicorn.error")
+logging.basicConfig(level=logging.INFO, format="%(message)s", handlers=[RichHandler()])
+logger.setLevel(logging.INFO)
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

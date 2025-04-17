@@ -2,6 +2,9 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
+ENV PYTHONUNBUFFERED=1
+ENV TERM=xterm-256color
+
 # Install poetry
 RUN apt-get update \
     && apt-get install -y --no-install-recommends curl build-essential \
@@ -25,4 +28,4 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["poetry", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--log-level", "info"]
