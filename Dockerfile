@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends libpq-dev && rm
 COPY pyproject.toml poetry.lock ./
 
 # Configure poetry to not create a virtual environment inside the container
-RUN poetry config virtualenvs.create false
+RUN poetry core virtualenvs.create false
 
 # Install dependencies
 RUN poetry install --no-interaction --no-root

@@ -24,7 +24,7 @@ app = FastAPI(
 )
 
 @app.get("/")
-def redirect_to_docs():
+async def redirect_to_docs():
     return RedirectResponse(url="/docs")
 
 @app.exception_handler(ValidationError)
